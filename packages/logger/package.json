@@ -1,0 +1,26 @@
+{
+  "name": "logger",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "source": "./src/index.ts",
+  "private": true,
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "test": "scripts-jest",
+    "dev": "tsc -w",
+    "build": "tsc",
+    "lint": "TIMING=1 scripts-eslint src --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "devDependencies": {
+    "scripts": "workspace:*",
+    "acme-tsconfig": "workspace:*",
+    "typescript": "^4.5.3"
+  },
+  "jest": {
+    "preset": "scripts/jest/node"
+  }
+}

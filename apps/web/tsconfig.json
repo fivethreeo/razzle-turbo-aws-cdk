@@ -1,0 +1,22 @@
+{
+  "extends": "acme-tsconfig/razzle.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "build",
+    "incremental": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "src/__tests__",
+    "src/*test.{[tj]sx?}",
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "razzle.config.js"
+  ]
+}
