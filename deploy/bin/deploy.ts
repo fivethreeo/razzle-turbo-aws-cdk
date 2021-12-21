@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
-import * as cdk from 'aws-cdk-lib';
-import { DeployStack } from '../lib/deploy-stack';
+import * as cdk from '@aws-cdk/core'
+import { RdsInitStackExample } from '../lib/deploy-stack';
 
 const app = new cdk.App();
-new DeployStack(app, 'DeployStack', {
+new RdsInitStackExample(app, 'DeployStack', {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */
