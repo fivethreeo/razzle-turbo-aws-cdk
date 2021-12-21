@@ -1,17 +1,50 @@
-import { Construct } from 'constructs';
+import { Construct } from "constructs";
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
-import * as cdk from '@aws-cdk/core'
-import { CfnOutput, Duration, Stack, Token } from '@aws-cdk/core'
-import { CdkResourceInitializer } from '../lib/resource-initializer'
-import { DockerImageCode } from '@aws-cdk/aws-lambda'
-import { InstanceClass, InstanceSize, InstanceType, Port, SubnetType, Vpc } from '@aws-cdk/aws-ec2'
-import { RetentionDays } from '@aws-cdk/aws-logs'
-import { Credentials, DatabaseInstance, DatabaseInstanceEngine, DatabaseSecret, PostgresEngineVersion } from '@aws-cdk/aws-rds'
+import * as path from "path";
+import * as cdk from "@aws-cdk/core";
+import { CfnOutput, Duration, Stack, Token } from "@aws-cdk/core";
+import { CdkResourceInitializer } from "../lib/resource-initializer";
+import * as lambda from "@aws-cdk/aws-lambda";
+import {
+  InstanceClass,
+  InstanceSize,
+  InstanceType,
+  Port,
+  SubnetType,
+  Vpc,
+} from "@aws-cdk/aws-ec2";
+import { RetentionDays } from "@aws-cdk/aws-logs";
+import {
+  Credentials,
+  DatabaseInstance,
+  DatabaseInstanceEngine,
+  DatabaseSecret,
+  PostgresEngineVersion,
+} from "@aws-cdk/aws-rds";
+import * as s3_deployment from "@aws-cdk/aws-s3-deployment";
 
 export class RdsInitStackExample extends Stack {
-  constructor (scope: cdk.App, id: string, props?: cdk.StackProps) {
-    super(scope, id, props)
-
+  constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+    new lambda.Function(this, "MyGoFunction", {
+      runtime: lambda.Runtime.NODEJS_12_X,
+      handler: 'main',
+      code: lambda.Code.fromAsset(
+        path.join(__dirname, "folder-containing-source-code"),
+        {
+          bundling: {
+            image: lambda.Runtime.NODEJS_12_X.bundlingImage,
+            command: [],
+            local: {
+              tryBundle(outputDir: string) {
+                return true;
+              },
+            },
+          },
+        }
+      ),
+    });
+    /*
     const instanceIdentifier = 'postres-01'
     const credsSecretName = `/${id}/rds/creds/${instanceIdentifier}`.toLowerCase()
     const creds = new DatabaseSecret(this, 'PostgresRdsCredentials', {
@@ -54,7 +87,7 @@ export class RdsInitStackExample extends Stack {
     // potentially allow connections to the RDS instance...
     // dbServer.connections.allowFrom ...
 
-/*     const initializer = new CdkResourceInitializer(this, 'MyRdsInit', {
+     const initializer = new CdkResourceInitializer(this, 'MyRdsInit', {
       config: {
         credsSecretName
       },
@@ -79,6 +112,5 @@ export class RdsInitStackExample extends Stack {
       value: Token.asString(initializer.response)
     })
     */
-
   }
 }

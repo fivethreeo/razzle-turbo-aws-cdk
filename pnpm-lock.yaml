@@ -129,6 +129,7 @@ importers:
       '@aws-cdk/aws-lambda': ^1.136.0
       '@aws-cdk/aws-logs': ^1.136.0
       '@aws-cdk/aws-rds': ^1.136.0
+      '@aws-cdk/aws-s3-deployment': ^1.136.0
       '@aws-cdk/aws-secretsmanager': ^1.136.0
       '@aws-cdk/aws-ssm': ^1.136.0
       '@aws-cdk/core': ^1.136.0
@@ -153,6 +154,7 @@ importers:
       '@aws-cdk/aws-lambda': 1.136.0
       '@aws-cdk/aws-logs': 1.136.0
       '@aws-cdk/aws-rds': 1.136.0
+      '@aws-cdk/aws-s3-deployment': 1.136.0
       '@aws-cdk/aws-secretsmanager': 1.136.0
       '@aws-cdk/aws-ssm': 1.136.0
       '@aws-cdk/core': 1.136.0
@@ -224,6 +226,14 @@ packages:
       constructs: 3.3.168
     dev: true
 
+  /@aws-cdk/aws-acmpca/1.136.0:
+    resolution: {integrity: sha512-HruAOTDZ/bEA1b4mxwgHAja5eqh91qOoWoil4vPFwXE3wYs4PN5o1qJY9mqcX8rlutSyRU467zhmToqoX8Aydg==}
+    engines: {node: '>= 10.13.0 <13 || >=13.7.0'}
+    dependencies:
+      '@aws-cdk/core': 1.136.0
+      constructs: 3.3.168
+    dev: true
+
   /@aws-cdk/aws-applicationautoscaling/1.136.0:
     resolution: {integrity: sha512-wEcTEGq1jSA7JxClvFNvSeER9lsAIpTg6RuSNN7E97KSBYOKJWEvKqSO1HscwJJPi+alo5vtTwGImqVnIzJjBQ==}
     engines: {node: '>= 10.13.0 <13 || >=13.7.0'}
@@ -244,6 +254,19 @@ packages:
       constructs: 3.3.168
     dev: true
 
+  /@aws-cdk/aws-certificatemanager/1.136.0:
+    resolution: {integrity: sha512-EHwelmAxvgO9fSR0v4YoZFM8qvl/I9C+4MiCPWvfhENWWRMjycF38aQkK6os6mm5i6V1LvUzO30+FH/15tI79Q==}
+    engines: {node: '>= 10.13.0 <13 || >=13.7.0'}
+    dependencies:
+      '@aws-cdk/aws-acmpca': 1.136.0
+      '@aws-cdk/aws-cloudwatch': 1.136.0
+      '@aws-cdk/aws-iam': 1.136.0
+      '@aws-cdk/aws-lambda': 1.136.0
+      '@aws-cdk/aws-route53': 1.136.0
+      '@aws-cdk/core': 1.136.0
+      constructs: 3.3.168
+    dev: true
+
   /@aws-cdk/aws-cloudformation/1.136.0:
     resolution: {integrity: sha512-duKbNUJH/cu+qvhCYyN4Nn4BXknpgOwdtOwf6z48aUMFAZJpAFNyzhoCxwnz03NimaP5xD03hzPJK4nd5pIn9g==}
     engines: {node: '>= 10.13.0 <13 || >=13.7.0'}
@@ -252,6 +275,23 @@ packages:
       '@aws-cdk/aws-lambda': 1.136.0
       '@aws-cdk/aws-s3': 1.136.0
       '@aws-cdk/aws-sns': 1.136.0
+      '@aws-cdk/core': 1.136.0
+      '@aws-cdk/cx-api': 1.136.0
+      constructs: 3.3.168
+    dev: true
+
+  /@aws-cdk/aws-cloudfront/1.136.0:
+    resolution: {integrity: sha512-RigbYrSQb1Z5ZoXnNPLx47sRdispOuKdcr1BGYonJFaIMMaa7bz5zZEv4KSugs8Ns6DKe1PYbRAnvO1N980XKA==}
+    engines: {node: '>= 10.13.0 <13 || >=13.7.0'}
+    dependencies:
+      '@aws-cdk/aws-certificatemanager': 1.136.0
+      '@aws-cdk/aws-cloudwatch': 1.136.0
+      '@aws-cdk/aws-ec2': 1.136.0
+      '@aws-cdk/aws-iam': 1.136.0
+      '@aws-cdk/aws-kms': 1.136.0
+      '@aws-cdk/aws-lambda': 1.136.0
+      '@aws-cdk/aws-s3': 1.136.0
+      '@aws-cdk/aws-ssm': 1.136.0
       '@aws-cdk/core': 1.136.0
       '@aws-cdk/cx-api': 1.136.0
       constructs: 3.3.168
@@ -424,6 +464,19 @@ packages:
       constructs: 3.3.168
     dev: true
 
+  /@aws-cdk/aws-route53/1.136.0:
+    resolution: {integrity: sha512-2IRyLs8r0efvmF+tFw6rVSrJybLp09A0ufNmdkGTsOIhdDbzanJCo2DITsh9pkPQCW9MfM95AmY+swO7muAs/g==}
+    engines: {node: '>= 10.13.0 <13 || >=13.7.0'}
+    dependencies:
+      '@aws-cdk/aws-ec2': 1.136.0
+      '@aws-cdk/aws-iam': 1.136.0
+      '@aws-cdk/aws-logs': 1.136.0
+      '@aws-cdk/cloud-assembly-schema': 1.136.0
+      '@aws-cdk/core': 1.136.0
+      '@aws-cdk/custom-resources': 1.136.0
+      constructs: 3.3.168
+    dev: true
+
   /@aws-cdk/aws-s3-assets/1.136.0:
     resolution: {integrity: sha512-TmbtJDRyKi9Dep90a4j735cQD0+IZhilsBEru5QvjRS/v50uurBSEbk3mkKxJy8ATseGcfreVUgl98AZ91Ks4Q==}
     engines: {node: '>= 10.13.0 <13 || >=13.7.0'}
@@ -436,6 +489,25 @@ packages:
       '@aws-cdk/cx-api': 1.136.0
       constructs: 3.3.168
     dev: true
+
+  /@aws-cdk/aws-s3-deployment/1.136.0:
+    resolution: {integrity: sha512-mEYOC3ebTmhlAE8tJXj/sctS7ReVq1G9+oga3P1+xdBBvItjFs3RmYcqIg+bYo133XAtEenG3l4zKA9wxZsqmw==}
+    engines: {node: '>= 10.13.0 <13 || >=13.7.0'}
+    dependencies:
+      '@aws-cdk/aws-cloudfront': 1.136.0
+      '@aws-cdk/aws-ec2': 1.136.0
+      '@aws-cdk/aws-efs': 1.136.0
+      '@aws-cdk/aws-iam': 1.136.0
+      '@aws-cdk/aws-lambda': 1.136.0
+      '@aws-cdk/aws-logs': 1.136.0
+      '@aws-cdk/aws-s3': 1.136.0
+      '@aws-cdk/aws-s3-assets': 1.136.0
+      '@aws-cdk/core': 1.136.0
+      '@aws-cdk/lambda-layer-awscli': 1.136.0
+      constructs: 3.3.168
+    dev: true
+    bundledDependencies:
+      - case
 
   /@aws-cdk/aws-s3/1.136.0:
     resolution: {integrity: sha512-3dJl4tQf3EQzzIuVVdmBRIYjqsCHE+D8uZ2xBHBjF0+mCu6zoWKmfl8dJyEFOLmWGXYQTvnlik/ix93kQRPKaQ==}
@@ -609,6 +681,15 @@ packages:
     dev: true
     bundledDependencies:
       - semver
+
+  /@aws-cdk/lambda-layer-awscli/1.136.0:
+    resolution: {integrity: sha512-qm1hNEmzom+GDnfl5l2B+4EBc2mcQft6SVmcxzcN9Ut/pN3a8PR0Pem9iwPUGkRAZTAwHzD4/LY5H3hKKGugFA==}
+    engines: {node: '>= 10.13.0 <13 || >=13.7.0'}
+    dependencies:
+      '@aws-cdk/aws-lambda': 1.136.0
+      '@aws-cdk/core': 1.136.0
+      constructs: 3.3.168
+    dev: true
 
   /@aws-cdk/region-info/1.136.0:
     resolution: {integrity: sha512-WmJ2stWqlPGGfMsTck+l7uEQ0FBMdmZ+JuamNFqpunihDk+iFdh91DZ3JbFzx8sYIMI8Cpb/rK7BQPZMV7WrOw==}
