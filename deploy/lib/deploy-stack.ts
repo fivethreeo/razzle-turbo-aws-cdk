@@ -1,6 +1,7 @@
 import { Construct } from "constructs";
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 import * as path from "path";
+import * as fs from "fs";
 import * as cdk from "@aws-cdk/core";
 import { CfnOutput, Duration, Stack, Token } from "@aws-cdk/core";
 import { CdkResourceInitializer } from "../lib/resource-initializer";
@@ -23,20 +24,24 @@ import {
 } from "@aws-cdk/aws-rds";
 import * as s3_deployment from "@aws-cdk/aws-s3-deployment";
 
+const serverAssetDir = path.join(__dirname, "..", "..", "apps", "web", "build");
 export class RdsInitStackExample extends Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
-    new lambda.Function(this, "MyGoFunction", {
+    new lambda.Function(this, "MyNodeFunction", {
       runtime: lambda.Runtime.NODEJS_12_X,
-      handler: 'main',
-      code: lambda.Code.fromAsset(
-        path.join(__dirname, "folder-containing-source-code"),
+      handler: "server.default",
+      code: lambda.Code.fromAsset(serverAssetDir,
         {
           bundling: {
             image: lambda.Runtime.NODEJS_12_X.bundlingImage,
             command: [],
             local: {
-              tryBundle(outputDir: string) {
+              tryBundle(outputDir: string, options) {
+                fs.copyFileSync(
+                  path.join(serverAssetDir, "server.js"),
+                  path.join(outputDir, "server.js")
+                );
                 return true;
               },
             },
