@@ -5,6 +5,7 @@
   "scripts": {
     "start": "razzle start",
     "build": "razzle build --noninteractive",
+    "predeploy": "cd ../../ && yarn turbo prune --scope=\"web\" --cwd=\"pruned/web\" --docker",
     "test": "razzle test --env=jsdom",
     "start:prod": "NODE_ENV=production node build/server.js"
   },

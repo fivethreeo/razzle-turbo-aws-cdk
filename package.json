@@ -28,6 +28,23 @@
           "build/**"
         ]
       },
+      "predeploy": {
+        "dependsOn": [
+          "^predeploy"
+        ]
+      },
+      "deploy": {
+        "dependsOn": [
+          "deploy#build",
+          "predeploy"
+        ]
+      },
+      "deploy:dev": {
+        "dependsOn": [
+          "deploy#build",
+          "predeploy"
+        ]
+      },
       "lint": {
         "outputs": []
       },

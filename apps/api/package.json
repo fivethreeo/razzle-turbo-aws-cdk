@@ -7,6 +7,7 @@
     "dev": "nodemon --exec \"node -r esbuild-register ./src/index.ts\" -e .ts",
     "start": "node -r esbuild-register ./src/index.ts",
     "build": "tsc",
+    "predeploy": "cd ../../ && yarn turbo prune --scope=\"api\" --cwd=\"pruned/api\" --docker",
     "lint": "tsc --noEmit && TIMING=1 eslint src --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
