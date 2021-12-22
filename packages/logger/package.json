@@ -16,8 +16,8 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
-    "scripts": "workspace:*",
-    "acme-tsconfig": "workspace:*",
+    "scripts": "*",
+    "acme-tsconfig": "*",
     "typescript": "^4.5.3"
   },
   "jest": {

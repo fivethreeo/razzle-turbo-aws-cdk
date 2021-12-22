@@ -21,7 +21,7 @@
     "nodemon": "^2.0.15",
     "scripts": "*",
     "supertest": "^6.1.3",
-    "acme-tsconfig": "workspace:*",
+    "acme-tsconfig": "*",
     "typescript": "^4.5.3"
   },
   "jest": {
@@ -31,7 +31,7 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "logger": "workspace:*",
+    "logger": "*",
     "morgan": "^1.10.0"
   }
 }
