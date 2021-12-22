@@ -9,8 +9,8 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "deploy": "echo \"Run cdk deploy in deploy/\"",
-    "deploy:dev": "echo \"Run cdk deploy in deploy/\""
+    "deploy": "echo \"Run sudo cdk deploy in deploy/\"",
+    "deploy:dev": "echo \"Run sudo cdk deploy --dev in deploy/\""
   },
   "devDependencies": {
     "@aws-cdk/aws-ec2": "^1.136.0",
