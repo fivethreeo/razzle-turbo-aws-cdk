@@ -26,17 +26,36 @@ sudo usermod -aG docker $USER
 newgrp docker
 ```
 
+Set aws credentials and region
+
 ```shell
 export AWS_ACCESS_KEY_ID=
 export AWS_SECRET_ACCESS_KEY=
 export AWS_DEFAULT_REGION=eu-north-1
+```
 
+Install dependencies
+
+```shell
 yarn install
-yarn turbo run deploy
+```
 
+Build cdk stack
+
+```shell
 cd deploy
 yarn cdk synth
+```
+
+Bootstrap cdk
+
+```shell
 yarn cdk bootstrap
+```
+
+Deploy stack
+
+```shell
 yarn cdk deploy
 ```
 
