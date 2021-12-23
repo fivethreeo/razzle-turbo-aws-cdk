@@ -1,3 +1,3 @@
 FROM public.ecr.aws/lambda/nodejs:12
 ENTRYPOINT []
-CMD [ "sh", "-c", "echo a start" ]
+CMD [ "sh", "-c", "cp full/apps/web/build/server.js /asset-output" ]
