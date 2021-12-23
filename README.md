@@ -70,3 +70,5 @@ https://aws.amazon.com/blogs/devops/building-apps-with-aws-cdk/
 https://serverlessland.com/patterns/cloudfront-s3-lambda-cdk
 
 https://docs.aws.amazon.com/cdk/api/v1/docs/aws-lambda-nodejs-readme.html
+
+https://docs.aws.amazon.com/cdk/api/v1/docs/aws-cloudfront-readme.html#distribution-api
